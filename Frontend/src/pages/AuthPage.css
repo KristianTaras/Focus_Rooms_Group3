@@ -1,0 +1,54 @@
+.auth-page {
+  max-width: 360px;
+  margin: 64px auto;
+  padding: 0 16px;
+  text-align: left;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field input {
+  padding: 8px 10px;
+  font-size: 16px;
+  border: 1px solid #c4c4c4;
+  border-radius: 6px;
+}
+
+.form-field input[aria-invalid='true'] {
+  border-color: #d32f2f;
+}
+
+.field-error,
+.server-error {
+  color: #d32f2f;
+  font-size: 14px;
+}
+
+.notice {
+  color: #2e7d32;
+}
+
+.auth-form button[type='submit'] {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.link-button {
+  margin-top: 16px;
+  background: none;
+  border: none;
+  color: #646cff;
+  cursor: pointer;
+  padding: 0;
+}
