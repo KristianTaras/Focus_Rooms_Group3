@@ -38,5 +38,18 @@ public class Room {
     public void setHost(User host) { this.host = host; }
 
     public RoomStatus getStatus() { return status; }
-    public void setStatus(RoomStatus status) { this.status = status; }
+
+    public void start() {
+        if (status != RoomStatus.SCHEDULED) {
+            throw new IllegalStateException("Only a scheduled room can be started");
+        }
+        status = RoomStatus.ACTIVE;
+    }
+
+    public void close() {
+        if (status != RoomStatus.ACTIVE) {
+            throw new IllegalStateException("Only an active room can be closed");
+        }
+        status = RoomStatus.CLOSED;
+    }
 }
