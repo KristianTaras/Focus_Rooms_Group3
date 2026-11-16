@@ -1,0 +1,28 @@
+.onboarding {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 32px 16px;
+}
+
+.onboarding__card {
+  width: 100%;
+  max-width: 560px;
+}
+
+.onboarding__title {
+  margin: 0;
+  font-size: 26px;
+}
+
+.onboarding__subtitle {
+  margin: 4px 0 24px;
+  color: var(--color-text-muted);
+}
+
+.onboarding__skip {
+  display: block;
+  margin-top: 16px;
+  color: var(--color-text-muted);
+  text-align: center;
+}
