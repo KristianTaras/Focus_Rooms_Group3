@@ -33,7 +33,7 @@ public class AuthService {
         User u = new User();
         u.setEmail(email);
         u.setUsername(r.username());
-        u.setPasswordHash(encoder.encode(r.Password()));
+        u.setPasswordHash(encoder.encode(r.password()));
         return UserResponse.from(users.save(u));
 
     }
