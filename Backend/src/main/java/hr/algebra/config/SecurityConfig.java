@@ -21,6 +21,7 @@ public class SecurityConfig {
                                                                    // (needed for REST API tokens)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/ws/**").permitAll()
                         .anyRequest().authenticated());
         return http.build();
     }
