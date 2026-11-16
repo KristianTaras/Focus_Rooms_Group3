@@ -4,6 +4,7 @@ import RequireAuth from './components/routing/RequireAuth'
 import AppLayout from './components/layout/AppLayout'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import NewRoomPage from './pages/NewRoomPage'
 import ProfilePage from './pages/ProfilePage'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route element={<AppLayout />}>
               <Route index element={<HomePage />} />
               <Route path="profil" element={<ProfilePage />} />
+              <Route path="sobe/nova" element={<NewRoomPage />} />
             </Route>
           </Route>
 
