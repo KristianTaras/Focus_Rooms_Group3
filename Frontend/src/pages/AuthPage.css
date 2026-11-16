@@ -34,6 +34,10 @@
   font-size: 14px;
 }
 
+.notice {
+  color: #2e7d32;
+}
+
 .auth-form button[type='submit'] {
   padding: 10px;
   font-size: 16px;
