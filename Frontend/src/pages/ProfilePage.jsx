@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom'
 import ProfileForm from '../components/profile/ProfileForm'
 
 function ProfilePage() {
   return (
-    <main className="auth-page">
-      <Link to="/">← Natrag na početnu</Link>
-      <ProfileForm />
-    </main>
+    <>
+      <h1 className="page-title">Moj profil</h1>
+      <div className="card profile-card">
+        <ProfileForm />
+      </div>
+    </>
   )
 }
 

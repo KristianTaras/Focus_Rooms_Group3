@@ -1,14 +1,3 @@
 .profile-form {
-  margin-top: 32px;
-}
-
-.form-field select {
-  padding: 8px 10px;
-  font-size: 16px;
-  border: 1px solid #c4c4c4;
-  border-radius: 6px;
-}
-
-.form-field select[aria-invalid='true'] {
-  border-color: #d32f2f;
+  max-width: 520px;
 }
