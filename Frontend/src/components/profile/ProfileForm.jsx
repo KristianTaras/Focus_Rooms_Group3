@@ -42,8 +42,6 @@ function ProfileForm() {
 
   return (
     <form className="auth-form profile-form" onSubmit={handleSubmit} noValidate>
-      <h2>Moj profil</h2>
-
       <FormField label="Ime" name="firstName"
         value={values.firstName} error={errors.firstName} onChange={handleFieldChange} />
       <FormField label="Prezime" name="lastName"

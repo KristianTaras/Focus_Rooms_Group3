@@ -1,22 +1,16 @@
-import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/authContext'
 
 function HomePage() {
-  const { user, logout } = useAuth()
-  const navigate = useNavigate()
-
-  function handleLogout() {
-    logout()
-    navigate('/login', { replace: true })
-  }
+  const { user } = useAuth()
 
   return (
-    <main className="auth-page">
-      <h1>Bok, {user.username}!</h1>
-      <p>Uspješno si prijavljen.</p>
-      <p><Link to="/profil">Uredi svoj profil</Link></p>
-      <button type="button" onClick={handleLogout}>Odjava</button>
-    </main>
+    <>
+      <h1 className="page-title">Pridruži se prijateljima</h1>
+      <div className="card">
+        <h2>Bok, {user.username}!</h2>
+        <p>Ovdje će uskoro biti aktivne sobe tvojih prijatelja i preporuke za zajedničko učenje.</p>
+      </div>
+    </>
   )
 }
 
