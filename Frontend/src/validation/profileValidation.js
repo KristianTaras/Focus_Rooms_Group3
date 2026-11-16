@@ -17,7 +17,7 @@ export const STUDY_PROGRAMS = [
 export const MIN_YEAR = 1
 export const MAX_YEAR = 5
 
-export function validateProfile({ firstName, lastName, studyProgram, studyYear }) {
+export function validateProfile({ firstName, lastName, studyProgram, studyYear, subjectIds = [] }) {
   const errors = {}
 
   if (firstName.trim().length < 2) {
@@ -35,6 +35,10 @@ export function validateProfile({ firstName, lastName, studyProgram, studyYear }
   const year = Number(studyYear)
   if (!Number.isInteger(year) || year < MIN_YEAR || year > MAX_YEAR) {
     errors.studyYear = `Godina studija mora biti od ${MIN_YEAR} do ${MAX_YEAR}`
+  }
+
+  if (subjectIds.length === 0) {
+    errors.subjectIds = 'Odaberi barem jedan predmet'
   }
 
   return errors

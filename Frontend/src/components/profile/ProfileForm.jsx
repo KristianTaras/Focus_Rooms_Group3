@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import FormField from '../auth/FormField'
 import { useAuthForm } from '../auth/useAuthForm'
+import SubjectSelect from './SubjectSelect'
 import {
   validateProfile,
   STUDY_PROGRAMS,
@@ -9,7 +10,13 @@ import {
 } from '../../validation/profileValidation'
 import './ProfileForm.css'
 
-const EMPTY_PROFILE = { firstName: '', lastName: '', studyProgram: '', studyYear: '' }
+const EMPTY_PROFILE = {
+  firstName: '',
+  lastName: '',
+  studyProgram: '',
+  studyYear: '',
+  subjectIds: [],
+}
 
 // Privremeno dok ne postoji API za profil (G3FR-207)
 async function saveProfileLocally(values) {
@@ -26,6 +33,11 @@ function ProfileForm() {
   function handleFieldChange(event) {
     setSaved(false)
     handleChange(event)
+  }
+
+  // useAuthForm očekuje event, pa listu predmeta šaljemo u istom obliku
+  function handleSubjectsChange(subjectIds) {
+    handleFieldChange({ target: { name: 'subjectIds', value: subjectIds } })
   }
 
   return (
@@ -51,6 +63,12 @@ function ProfileForm() {
 
       <FormField label={`Godina studija (${MIN_YEAR}–${MAX_YEAR})`} name="studyYear" type="number"
         value={values.studyYear} error={errors.studyYear} onChange={handleFieldChange} />
+
+      <SubjectSelect
+        selectedIds={values.subjectIds}
+        onChange={handleSubjectsChange}
+        error={errors.subjectIds}
+      />
 
       {serverError && <p className="server-error">{serverError}</p>}
       <button type="submit" disabled={submitting}>Spremi profil</button>
