@@ -1,15 +1,27 @@
-import { useState } from 'react'
-import AuthPage from './pages/AuthPage'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import AuthProvider from './context/AuthProvider'
+import RequireAuth from './components/routing/RequireAuth'
+import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
-  const [user, setUser] = useState(null)
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
 
-  if (user) {
-    return <HomePage user={user} onLogout={() => setUser(null)} />
-  }
+          <Route element={<RequireAuth />}>
+            <Route index element={<HomePage />} />
+            <Route path="profil" element={<ProfilePage />} />
+          </Route>
 
-  return <AuthPage onLogin={setUser} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  )
 }
 
 export default App
