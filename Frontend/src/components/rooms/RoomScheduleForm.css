@@ -1,0 +1,25 @@
+.room-form {
+  max-width: 520px;
+}
+
+.room-form__time {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.room-form__time select {
+  width: 90px;
+}
+
+.room-form__colon {
+  font-weight: 700;
+}
+
+.room-form__summary {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: rgba(2, 117, 174, 0.08);
+  color: var(--color-text);
+}

@@ -4,6 +4,7 @@ import './AppLayout.css'
 
 const NAV_ITEMS = [
   { to: '/', label: 'Početna', end: true },
+  { to: '/sobe/nova', label: 'Nova soba' },
   { to: '/profil', label: 'Moj profil' },
 ]
 
