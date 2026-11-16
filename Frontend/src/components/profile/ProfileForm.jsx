@@ -25,10 +25,16 @@ async function saveProfileLocally(values) {
   return profile
 }
 
-function ProfileForm() {
+function ProfileForm({ onSaved, submitLabel = 'Spremi profil' }) {
   const [saved, setSaved] = useState(false)
+
+  function handleSaved(profile) {
+    setSaved(true)
+    onSaved?.(profile)
+  }
+
   const { values, errors, serverError, submitting, handleChange, handleSubmit } =
-    useAuthForm(EMPTY_PROFILE, validateProfile, saveProfileLocally, () => setSaved(true))
+    useAuthForm(EMPTY_PROFILE, validateProfile, saveProfileLocally, handleSaved)
 
   function handleFieldChange(event) {
     setSaved(false)
@@ -69,7 +75,7 @@ function ProfileForm() {
       />
 
       {serverError && <p className="server-error">{serverError}</p>}
-      <button type="submit" disabled={submitting}>Spremi profil</button>
+      <button type="submit" disabled={submitting}>{submitLabel}</button>
       {saved && <p className="notice">Profil spremljen</p>}
     </form>
   )

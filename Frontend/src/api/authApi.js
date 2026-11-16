@@ -35,3 +35,9 @@ export function register({ username, email, password }) {
 export function login({ email, password }) {
   return post('/api/auth/login', { email, password })
 }
+
+// Nakon registracije odmah prijavi korisnika, kako bi mogao nastaviti na korak 2 (profil)
+export async function registerAndLogin({ username, email, password }) {
+  await register({ username, email, password })
+  return login({ email, password })
+}

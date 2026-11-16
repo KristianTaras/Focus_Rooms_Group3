@@ -1,0 +1,24 @@
+.step-indicator {
+  margin-bottom: 20px;
+}
+
+.step-indicator__text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.step-indicator__bar {
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 3px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.step-indicator__fill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}

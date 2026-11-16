@@ -5,6 +5,7 @@ import AppLayout from './components/layout/AppLayout'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import ProfilePage from './pages/ProfilePage'
+import OnboardingPage from './pages/OnboardingPage'
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
 
           <Route element={<RequireAuth />}>
+            <Route path="dovrsi-profil" element={<OnboardingPage />} />
+
             <Route element={<AppLayout />}>
               <Route index element={<HomePage />} />
               <Route path="profil" element={<ProfilePage />} />

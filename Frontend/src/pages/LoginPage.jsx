@@ -1,21 +1,22 @@
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import { useAuth } from '../context/authContext'
 import AuthPage from './AuthPage'
 
 function LoginPage() {
   const { user, login } = useAuth()
-  const navigate = useNavigate()
+  const [redirectTo, setRedirectTo] = useState('/')
 
   if (user) {
-    return <Navigate to="/" replace />
+    return <Navigate to={redirectTo} replace />
   }
 
-  function handleLogin(loggedInUser) {
-    login(loggedInUser)
-    navigate('/', { replace: true })
+  function handleRegistered(newUser) {
+    setRedirectTo('/dovrsi-profil')
+    login(newUser)
   }
 
-  return <AuthPage onLogin={handleLogin} />
+  return <AuthPage onLogin={login} onRegistered={handleRegistered} />
 }
 
 export default LoginPage
