@@ -1,5 +1,10 @@
 # Focus_Rooms_Group3
-Team wide repository to be used for coding the Focus Rooms applicaiton
+Team repository to be used for coding the Focus Rooms application.
+Project will be made using Java Springboot framework for Backend, React for Frontend, PostgreSQL for Database and Docker compose for containerisation and easier deployment and scalability 
+of said application.
+Application will follow SOLID principles during it's coding for better quality of code.
+
+Size of team: 3.
 
 ## Pokretanje lokalno
 
